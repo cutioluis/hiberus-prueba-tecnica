@@ -1,0 +1,10 @@
+.dashboard-flex-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.dashboard-options, .dashboard-form {
+  flex: 1;
+  min-width: 300px;
+}

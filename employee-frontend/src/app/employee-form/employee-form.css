@@ -1,0 +1,129 @@
+
+body, .modern-page {
+  background: #18181b;
+  color: #e5e7eb;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.img-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: brightness(0) invert(1);
+
+}
+
+.modern-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 0;
+}
+
+.modern-card {
+  background: #232329;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #00000040;
+  padding: 2rem;
+  min-width: 340px;
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.queries {
+  margin-right: 0;
+}
+
+.modern-btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.modern-btn {
+  background: #27272a;
+  color: #e5e7eb;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+.modern-btn:hover, .modern-btn.primary:hover {
+  background: #32323a;
+  border-color: #444;
+}
+.modern-btn.primary {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+}
+.modern-btn.primary:disabled {
+  background: #1e293b;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.modern-form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.modern-form-group label {
+  margin-bottom: 0.3rem;
+  color: #a1a1aa;
+  font-size: 0.98rem;
+}
+.modern-form-group input {
+  background: #18181b;
+  color: #e5e7eb;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.modern-form-group input:focus {
+  border-color: #3b82f6;
+}
+.is-invalid {
+  border-color: #ef4444 !important;
+}
+.modern-invalid {
+  color: #ef4444;
+  font-size: 0.92rem;
+  margin-top: 0.2rem;
+}
+
+.modern-result {
+  background: #18181b;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #a7f3d0;
+  font-size: 1rem;
+  border: 1px solid #333;
+  overflow-x: auto;
+}
+.modern-error {
+  color: #ef4444;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.success-message {
+  color: #22c55e;
+  margin-top: 1rem;
+}
+.error-message {
+  color: #ef4444;
+  margin-top: 1rem;
+}

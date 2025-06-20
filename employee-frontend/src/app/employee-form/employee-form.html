@@ -1,0 +1,76 @@
+<div class="modern-page">
+  <div class="modern-card queries">
+        <img class="img-logo" src="/img.png" alt="">
+
+    <h2>Consultas de Empleados</h2>
+    <div class="modern-btn-group">
+      <button class="modern-btn" (click)="getHighestSalary()">Salario más alto</button>
+      <button class="modern-btn" (click)="getLowerAge()">Edad más baja</button>
+      <button class="modern-btn" (click)="getCountLastMonth()">Empleados último mes</button>
+    </div>
+    <div *ngIf="result" class="modern-result">
+      <pre>{{ result | json }}</pre>
+    </div>
+    <div *ngIf="error" class="modern-error">
+      {{ error }}
+    </div>
+  </div>
+
+  <div class="modern-card form">
+    <h2>Crear Nuevo Empleado</h2>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="modern-form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" formControlName="name" [class.is-invalid]="f['name'].invalid && f['name'].touched">
+        <div *ngIf="f['name'].invalid && f['name'].touched" class="modern-invalid">
+          <div *ngIf="f['name'].errors?.['required']">El nombre es obligatorio.</div>
+        </div>
+      </div>
+      <div class="modern-form-group">
+        <label for="lastName">Apellido</label>
+        <input type="text" id="lastName" formControlName="lastName" [class.is-invalid]="f['lastName'].invalid && f['lastName'].touched">
+        <div *ngIf="f['lastName'].invalid && f['lastName'].touched" class="modern-invalid">
+          <div *ngIf="f['lastName'].errors?.['required']">El apellido es obligatorio.</div>
+        </div>
+      </div>
+      <div class="modern-form-group">
+        <label for="age">Edad</label>
+        <input type="number" id="age" formControlName="age" [class.is-invalid]="f['age'].invalid && f['age'].touched">
+        <div *ngIf="f['age'].invalid && f['age'].touched" class="modern-invalid">
+          <div *ngIf="f['age'].errors?.['required']">La edad es obligatoria.</div>
+          <div *ngIf="f['age'].errors?.['min']">Edad mínima: {{f['age'].errors?.['min']?.min}}.</div>
+          <div *ngIf="f['age'].errors?.['max']">Edad máxima: {{f['age'].errors?.['max']?.max}}.</div>
+          <div *ngIf="f['age'].errors?.['pattern']">Debe ser un número entero.</div>
+        </div>
+      </div>
+      <div class="modern-form-group">
+        <label for="role">Rol</label>
+        <input type="text" id="role" formControlName="role" [class.is-invalid]="f['role'].invalid && f['role'].touched">
+        <div *ngIf="f['role'].invalid && f['role'].touched" class="modern-invalid">
+          <div *ngIf="f['role'].errors?.['required']">El rol es obligatorio.</div>
+        </div>
+      </div>
+      <div class="modern-form-group">
+        <label for="salary">Salario</label>
+        <input type="number" id="salary" formControlName="salary" [class.is-invalid]="f['salary'].invalid && f['salary'].touched">
+        <div *ngIf="f['salary'].invalid && f['salary'].touched" class="modern-invalid">
+          <div *ngIf="f['salary'].errors?.['required']">El salario es obligatorio.</div>
+          <div *ngIf="f['salary'].errors?.['min']">Debe ser positivo.</div>
+          <div *ngIf="f['salary'].errors?.['pattern']">Debe ser un número válido.</div>
+        </div>
+      </div>
+      <div class="modern-form-group">
+        <label for="initDate">Fecha de Ingreso (YYYY-MM-DD)</label>
+        <input type="text" id="initDate" formControlName="initDate" placeholder="Ej: 2024-01-01" [class.is-invalid]="f['initDate'].invalid && f['initDate'].touched">
+        <div *ngIf="f['initDate'].invalid && f['initDate'].touched" class="modern-invalid">
+          <div *ngIf="f['initDate'].errors?.['required']">La fecha es obligatoria.</div>
+          <div *ngIf="f['initDate'].errors?.['invalidDateFormat']">Formato: YYYY-MM-DD.</div>
+        </div>
+      </div>
+      <button type="submit" class="modern-btn primary" [disabled]="employeeForm.invalid">Crear Empleado</button>
+    </form>
+    <div *ngIf="submissionMessage" [class.success-message]="isSuccess" [class.error-message]="!isSuccess">
+      {{ submissionMessage }}
+    </div>
+  </div>
+</div>

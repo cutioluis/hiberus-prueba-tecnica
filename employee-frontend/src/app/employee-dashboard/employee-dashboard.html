@@ -1,0 +1,14 @@
+<p>employee-dashboard works!</p>
+<div class="dashboard-container">
+  <h2>Consultas de Empleados</h2>
+  <button (click)="getHighestSalary()">Salario más alto</button>
+  <button (click)="getLowerAge()">Edad más baja</button>
+  <button (click)="getCountLastMonth()">Empleados último mes</button>
+
+  <div *ngIf="result">
+    <pre>{{ result | json }}</pre>
+  </div>
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+</div>
